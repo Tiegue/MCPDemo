@@ -1,13 +1,13 @@
-package com.example.mcpdemo;
+package com.example.mcpclient;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class McpdemoApplication {
+public class McpClientApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(McpdemoApplication.class, args);
+		SpringApplication.run(McpClientApplication.class, args);
 	}
 
 }
