@@ -1,5 +1,6 @@
 package com.example.mcpserver;
 
+import jakarta.annotation.PostConstruct;
 import org.springframework.ai.tool.ToolCallback;
 import org.springframework.ai.tool.ToolCallbackProvider;
 import org.springframework.ai.tool.ToolCallbacks;
@@ -15,7 +16,10 @@ public class McpServerApplication {
 		SpringApplication.run(McpServerApplication.class, args);
 	}
 
-
+//	@PostConstruct
+//	public void init() {
+//		System.out.println("🟢 MCP Server started.");
+//	}
 //	@Bean
 //	public List<ToolCallback> danTools(CourseService courseService) {
 //		return List.of(ToolCallbacks.from(courseService));
