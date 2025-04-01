@@ -16,14 +16,7 @@ public class McpServerApplication {
 		SpringApplication.run(McpServerApplication.class, args);
 	}
 
-//	@PostConstruct
-//	public void init() {
-//		System.out.println("🟢 MCP Server started.");
-//	}
-//	@Bean
-//	public List<ToolCallback> danTools(CourseService courseService) {
-//		return List.of(ToolCallbacks.from(courseService));
-//	}
+
 	@Bean
 	public ToolCallbackProvider danToolsProvider(CourseService courseService) {
 		return MethodToolCallbackProvider.builder().toolObjects(courseService).build();
