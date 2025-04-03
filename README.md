@@ -32,11 +32,35 @@ That tells Spring AI MCP to connect to Claude Desktop using STDIN/STDOUT — a p
 
     }
 
-# McpClient
-## porperties
-spring.application.name=mcpClient
-#spring.ai.mcp.client.stdio.servers-configuration=/Users/tiegue/Library/Application Support/Claude/claude_desktop_config.json
-it tell MCP clients automatically load the claude_desktop_config.json.
+# Design Document: MCP Client Demo
+
+## Overview
+The `mcpclient` project is a minimal and functional demonstration of an AI tool client built using the **Model Context Protocol (MCP)**. It launches and interacts with a locally hosted MCP-compliant tool server (i.e. the `mcpserver` project), retrieves available tools, and calls them using structured MCP schema requests.
+
+---
+
+## Goals
+- Demonstrate how to connect to an MCP server using the official Java SDK
+- Execute AI tools exposed by an MCP server using `callTool`
+- Show synchronous request/response pattern using `StdioClientTransport`
+
+---
+
+## Architecture
+- **Language**: Java 22
+- **MCP SDK**: `io.modelcontextprotocol.client` (official MCP Java client)
+- **Transport**: Standard Input/Output (Stdio) communication with the MCP server
+- **Launch Type**: Embedded invocation of Spring Boot-based MCP server `.jar`
+
+---
+
+## Workflow
+
+### 1. Launch Server via `ServerParameters`
+```java
+var stdioParams = ServerParameters.builder("java")
+    .args("-jar", serverJarPath)
+    .build();
 
 # Publish
 How do I make my own MCP server work like the @modelcontextprotocol/server-filesystem — meaning:

@@ -52,7 +52,7 @@ public class WeatherService {
             }
             String forecastUrl = (String) forecastObj;
 
-            // Step 2: Get forecast data
+            // Step 4: Get forecast data
             Map<String, Object> forecastData = restClient.get()
                     .uri(forecastUrl)
                     .retrieve()
